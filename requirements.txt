@@ -2,4 +2,6 @@ streamlit
 dotenv
 langchain
 langchain-google-genai
-pdf2image
+fastapi
+uvicorn[standard]
+sqlite-utils
