@@ -108,4 +108,17 @@ Anmol Singh
 AI / Backend Engineer
 GitHub: https://github.com/Anmols243
 
+## 🔐 Privacy & Security Notice
+
+This is a demo application. Uploaded SQLite databases are stored temporarily on the backend server in order to perform SQL generation and execution.
+
+⚠️ Do NOT upload sensitive, personal, financial, or confidential databases.
+
+In a real production system, this would be secured using:
+- Encrypted file storage
+- Per-user database isolation
+- Automatic file deletion
+- Zero-logging policies
+- Client-side execution (WebAssembly / DuckDB / Private Sandboxes)
+
 ## ⭐ If you like this project, consider starring the repo!
