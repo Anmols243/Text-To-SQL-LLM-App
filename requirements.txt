@@ -4,3 +4,4 @@ python-multipart
 langchain
 langchain-google-genai
 pydantic
+dotenv
