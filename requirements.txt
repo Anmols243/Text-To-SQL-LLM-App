@@ -3,5 +3,4 @@ uvicorn
 python-multipart
 langchain
 langchain-google-genai
-sqlite3
 pydantic
