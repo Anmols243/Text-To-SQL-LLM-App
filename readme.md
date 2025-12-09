@@ -4,6 +4,22 @@ A full-stack AI-powered application that allows users to upload any SQLite datab
 The system uses an LLM to generate SQL, executes it safely, and displays results in a clean web UI.
 
 ---
+## 🚀 Live Demo
+
+Frontend (Streamlit App):  
+👉 https://text-to-sql-llm-app-jalabbm3tkmukaev7cupqp.streamlit.app/
+
+Backend (FastAPI API):  
+👉 https://text-to-sql-llm-app-backend.onrender.com
+
+## 🗄️ Sample Database
+
+Download the test database here:  
+👉 [Download test_db.sqlite](https://raw.githubusercontent.com/Anmols243/Text-To-SQL-LLM-App/main/sample_db/test_db.sqlite)
+
+
+Use this file to instantly test the app after opening the deployed site.
+
 
 ## 🚀 Features
 
@@ -31,12 +47,15 @@ The system uses an LLM to generate SQL, executes it safely, and displays results
 
 Text-To-SQL-LLM-App/
 ├── backend/
-│ ├── app.py
-│ └── sql.py
+│   ├── app.py
+│   └── sql.py
 │
 ├── frontend/
-│ └── streamlit_app/
-│ └── app.py
+│   └── streamlit_app/
+│       └── app.py
+│
+├── sample_db/
+│   └── test_db.sqlite
 │
 ├── .gitignore
 ├── requirements.txt
@@ -44,8 +63,19 @@ Text-To-SQL-LLM-App/
 
 
 ---
+## 🧠 How It Works (User Flow)
 
-## ⚙️ How It Works
+1. Open the deployed app
+2. Upload your SQLite database (.sqlite or .db)
+3. Enter a natural language question  
+   Example: "Show top 5 customers by total spending"
+4. Click **Generate & Run**
+5. The app:
+   - Converts your question to SQL
+   - Executes it safely on your database
+   - Displays real results instantly
+
+## ⚙️ Internal Architecture Flow
 
 1. User uploads a SQLite database (`.db` or `.sqlite`).
 2. Backend extracts the table schema automatically.
@@ -66,15 +96,15 @@ cd Text-To-SQL-LLM-App
 
 ### 2️⃣ Start Backend (FastAPI)
 ```bash
-cd backend
 pip install -r requirements.txt
+cd backend
 uvicorn app:app --reload
 ```
 
 ### 3️⃣ Start Frontend (Streamlit)
 ```bash
-cd frontend/streamlit_app
 pip install -r requirements.txt
+cd frontend/streamlit_app
 streamlit run app.py
 ```
 
