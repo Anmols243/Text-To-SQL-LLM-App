@@ -1,7 +1,7 @@
-streamlit
-dotenv
+fastapi
+uvicorn
+python-multipart
 langchain
 langchain-google-genai
-fastapi
-uvicorn[standard]
-sqlite-utils
+sqlite3
+pydantic

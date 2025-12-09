@@ -12,7 +12,7 @@ llm = ChatGoogleGenerativeAI(
     temperature=0
 )
 
-def get_schema(db_path="mydb.sqlite"):
+def get_schema(db_path):
     connect=sqlite3.connect(db_path)
     cursor=connect.cursor()
     cursor.execute("SELECT sql from sqlite_master WHERE type='table';")
@@ -51,28 +51,33 @@ def build_chain(schema_text):
 
     return chain
 
-def generate_sql(question, db="mydb.sqlite"):
-    schema_text= get_schema(db)
+def generate_sql(question, db_path):
+    schema_text= get_schema(db_path)
     chain = build_chain(schema_text)
     return chain.invoke(question)
 
 def run_query(sql, db="mydb.sqlite"):
+    if not sql:
+        return {"error": "No SQL was generated"}
+    
     forbidden = ["drop", "delete", "update", "insert", "alter"]
+
     if any(word in sql.lower() for word in forbidden):
-        return "Dangerous SQL blocked"
+        return "Dangerous SQL opetation blocked"
     
     try:
         connection = sqlite3.connect(db)
         cursor = connection.cursor()
+
         cursor.execute(sql)
-        result = cursor.fetchall()
+        rows = cursor.fetchall()
         columns = [desc[0] for desc in cursor.description]
         connection.close()
 
 
         return{
             "columns": columns,
-            "rows": result
+            "rows": rows
         }
     except Exception as e:
         return {"error": str(e)}
