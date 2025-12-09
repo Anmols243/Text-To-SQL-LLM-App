@@ -12,7 +12,6 @@ conda-meta/
 .env.local
 .env.dev
 .env.prod
-*.sqlite
 *.db
 *.log
 uvicorn.log
